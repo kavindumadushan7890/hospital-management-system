@@ -1,11 +1,16 @@
 package com.example.hospital_management_system.doctor.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProfessionalDetails {
 
     @Id
@@ -14,5 +19,10 @@ public class ProfessionalDetails {
 
     private String licenseNumber;
     private Integer experienceYears;
+
+    @OneToOne
+    @JoinColumn(name = "doctor_id" , nullable = false)
+    private Doctor doctor;
+
 
 }

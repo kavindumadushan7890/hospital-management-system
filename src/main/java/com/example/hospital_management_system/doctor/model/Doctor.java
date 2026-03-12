@@ -4,10 +4,19 @@ import com.example.hospital_management_system.patient.model.Appointment;
 import com.example.hospital_management_system.patient.model.AppointmentSlot;
 import com.example.hospital_management_system.prescription.model.Prescription;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doctor {
 
     @Id
@@ -23,12 +32,14 @@ public class Doctor {
     private String email;
     private String phone;
 
-    @OneToOne
-    @JoinColumn(name = "professional_details_id" , nullable = false)
-    private ProfessionalDetails professionalDetails;
 
-    @OneToMany(mappedBy = "doctor")
-    private List<Specialization> specializations;
+    @ManyToMany
+    @JoinTable(
+            name = "doctor_specialization",
+            joinColumns = @JoinColumn(name = "doctor_id"),
+            inverseJoinColumns = @JoinColumn(name = "specialization_id" )
+    )
+    private Set<Specialization> specializations;
 
     @OneToMany(mappedBy = "doctor")
     private List<Appointment>appointments;
@@ -39,4 +50,10 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor")
     private List<AppointmentSlot>appointmentSlots;
 
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    private DoctorStatus status = DoctorStatus.ACTIVE;
+
 }
+
+

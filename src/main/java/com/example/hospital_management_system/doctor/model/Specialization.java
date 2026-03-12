@@ -1,8 +1,15 @@
 package com.example.hospital_management_system.doctor.model;
 
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Specialization {
 
     @Id
@@ -11,8 +18,9 @@ public class Specialization {
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id" , nullable = false)
-    private Doctor doctor;
+    @ManyToMany(mappedBy = "specializations")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Doctor> doctorList;
 
 }
