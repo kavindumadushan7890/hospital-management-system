@@ -13,10 +13,6 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate date;
-    private LocalTime startTime;
-    private LocalTime endTime;
-
     @Enumerated(EnumType.STRING)
     private AppointmentStatus status;
 

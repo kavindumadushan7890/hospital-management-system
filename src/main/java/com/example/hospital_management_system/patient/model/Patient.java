@@ -4,11 +4,13 @@ import com.example.hospital_management_system.doctor.model.Gender;
 import com.example.hospital_management_system.invoice.model.Invoice;
 import com.example.hospital_management_system.prescription.model.Prescription;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Data
 public class Patient {
 
     @Id
