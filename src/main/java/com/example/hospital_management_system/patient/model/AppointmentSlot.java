@@ -29,4 +29,8 @@ public class AppointmentSlot {
     @OneToMany(mappedBy = "appointmentSlot")
     private List<Appointment>appointments;
 
+    @ManyToOne
+    @JoinColumn(name = "schedule_id" , nullable = false)
+    private DoctorSchedule doctorSchedule;
+
 }
