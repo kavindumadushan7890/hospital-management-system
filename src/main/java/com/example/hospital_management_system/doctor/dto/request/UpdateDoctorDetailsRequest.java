@@ -13,10 +13,8 @@ import lombok.Data;
 public class UpdateDoctorDetailsRequest {
 
     @Email(message = "Invalid email")
-    @NotBlank(message = "Email is required")
     private String email;
 
-    @NotBlank(message = "Phone number is required")
     @Pattern(
             regexp = "^(\\+94|0)?7[0-9]{8}",
             message = "Invalid Sri Lankan phone number"

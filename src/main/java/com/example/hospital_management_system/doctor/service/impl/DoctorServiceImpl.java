@@ -39,7 +39,8 @@ public class DoctorServiceImpl implements DoctorService {
         );
 
         Doctor entity = doctorMapper.toEntity(request);
-        entity.setSpecializations(Set.of(specialization));
+        //entity.setSpecializations(Set.of(specialization));
+        entity.getSpecializations().add(specialization);
         Doctor saved = doctorRepository.save(entity);
     }
 
