@@ -30,9 +30,9 @@ public interface DoctorMapper {
 
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    @Mapping(target = "firstName" , ignore = true)
-    @Mapping(target = "lastName" , ignore = true)
-    @Mapping(target = "gender" , ignore = true)
+//    @Mapping(target = "firstName" , ignore = true)
+//    @Mapping(target = "lastName" , ignore = true)
+//    @Mapping(target = "gender" , ignore = true)
     @Mapping(target = "specializations" , ignore = true)
     void updateDoctor(UpdateDoctorDetailsRequest request , @MappingTarget Doctor doctor);
 

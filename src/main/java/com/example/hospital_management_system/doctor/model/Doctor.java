@@ -54,6 +54,9 @@ public class Doctor {
     @Enumerated(EnumType.STRING)
     private DoctorStatus status = DoctorStatus.ACTIVE;
 
+    @OneToMany(mappedBy = "doctor")
+    private List<DoctorSchedule>doctorSchedules;
+
 }
 
 
