@@ -1,13 +1,22 @@
 package com.example.hospital_management_system.patient.model;
 
 import com.example.hospital_management_system.doctor.model.Doctor;
+import com.example.hospital_management_system.doctor.model.DoctorSchedule;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class AppointmentSlot {
 
     @Id

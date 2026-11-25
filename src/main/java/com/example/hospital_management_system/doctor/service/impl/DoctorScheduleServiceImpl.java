@@ -37,6 +37,13 @@ public class DoctorScheduleServiceImpl implements DoctorScheduleService {
                 ()->new NotFoundException("Not found doctor given id")
         );
 
+        if (doctorScheduleRepository.existsByDoctorIdAndDayOfWeek(
+                id , request.getDayOfWeek()
+        ))
+        {
+            throw new IllegalArgumentException("Doctor already has a schedule for this day");
+        }
+
         DoctorSchedule entity = doctorScheduleMapper.toEntity(request);
         entity.setDoctor(doctor);
         DoctorSchedule saved = doctorScheduleRepository.save(entity);

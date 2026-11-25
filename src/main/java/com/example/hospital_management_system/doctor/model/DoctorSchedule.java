@@ -37,7 +37,7 @@ public class DoctorSchedule {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
-    @OneToMany(mappedBy = "DoctorSchedule")
+    @OneToMany(mappedBy = "doctorSchedule")
     private List<AppointmentSlot>appointmentSlotList;
 
 }

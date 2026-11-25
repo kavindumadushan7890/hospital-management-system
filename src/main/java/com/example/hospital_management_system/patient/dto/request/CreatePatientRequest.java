@@ -29,6 +29,7 @@ public class CreatePatientRequest {
 
     @Email(message = "Invalid email")
     @NotBlank(message = "Email is required")
+
     private String email;
 
     @NotBlank(message = "Phone number is required")
