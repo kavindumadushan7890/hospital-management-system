@@ -2,16 +2,22 @@ package com.example.hospital_management_system.patient.model;
 
 import com.example.hospital_management_system.doctor.model.Doctor;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
+@Data
 public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private LocalDate date;
+    private LocalTime startTime;
+    private LocalTime endTime;
 
     @Enumerated(EnumType.STRING)
     private AppointmentStatus status;
